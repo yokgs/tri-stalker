@@ -47,6 +47,7 @@ async function dwnAll() {
     let data = fs.readFileSync("./data.txt").toString().trim().split("\n").map(x => x.trim());
     let existed = [];
     for (let name of data) {
+        name = name.toLowerCase()
         for (let i = 1; i < 300; i += i < 100 ? 1 : 10) {
             if (existed.includes(i)) continue;
             let done = await save(name, mode, toId(i));
